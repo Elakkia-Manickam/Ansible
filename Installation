@@ -12,6 +12,12 @@ ansible --version
 #Installation of pip
 sudo apt-get update && sudo apt-get -y upgrade
 sudo apt-get install python-pip
+
+#ansible command for windows 
+ansible windows -i inventory -m win_ping
+
+#ansible command for linux
+ansible linux -i inventory -u ec2-user -m ping
 ----------------------------------------------------------------------------------------------------------------------
 #Ansible Installation steps on windows (Basic authetication)
 #install pywinrm python module in windows server using command prompt
@@ -47,6 +53,10 @@ powershell command
 netstat -ano | findstr :5985
 if port is not listening in the remote side try to change the port in in inventory file.
 -------------------------------------------------------------------------------------------------------------------------------
+#Inventory file to keep in master side
+[Linux]
+192.168.1.10
+
 #IF you are using red hat machine as remote machine
 sudo yum install python
 
@@ -58,5 +68,4 @@ ssh-keygen
 copy the key  id_rsa.pub and paste it in remote server
 ste2 :(remote server)
 copy key and paste under authorized_keys (paste to the user or root authorized_keys)
-
 
